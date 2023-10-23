@@ -1,0 +1,65 @@
+
+.App{
+  height:100vh;
+  display:grid;
+  grid-template-columns:260px minmax(70%,auto);
+}
+.App.threadView{
+  grid-template-columns:260px minmax(auto,100%) 380px;
+}
+.App > .row{
+  height:100vh;
+}
+form {
+  height:100px;
+}
+.messageBox {
+  display:grid;
+  grid-template-columns: 60px auto;
+}
+.avatar{
+  width:50px;
+}
+.mainPanel{
+  display: grid;
+  align-content: flex-end;
+  margin:5px;
+}
+.mainPanel > div:hover{
+  background-color:lavender
+}
+.sidePanel{
+  background-color: #141E46;
+  color:white;
+}
+.threadPanel{
+  border-left:1px solid lightgray;
+  padding:15px 15px 5px 15px;
+}
+.list{
+  max-height:calc(100vh - 100px);
+}
+.item {
+  display:grid;
+  grid-template-columns: 60px auto;
+}
+.senderName{
+  font-weight:bold;
+  display:inline-block;
+  margin-right:5px;
+}
+.time{
+  color:gray;
+  font-size:smaller;
+}
+.textBtn{
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  background: none;
+}
+.replyBtn{
+	color: blue;
+}
