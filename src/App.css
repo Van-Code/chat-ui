@@ -63,3 +63,8 @@ form {
 .replyBtn{
 	color: blue;
 }
+.closeBtn{
+  position:absolute;
+  top:5px;
+  right:5px;
+}

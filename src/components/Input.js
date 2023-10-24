@@ -31,7 +31,6 @@ export default function Input(props) {
 
     const data = {
       id: props.index,
-      name: 'van',
       time: getTime(),
       message: message,
     };

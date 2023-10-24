@@ -1,18 +1,13 @@
 import { useState } from 'react';
 import MessageContent from './MessageContent';
-import Input from './Input';
 
 export default function ListItem(props) {
-  const [showThreadPanel, toggleThreadPanel] = useState(false);
   const [showReplyBtn, setIsShown] = useState(false);
-  const [threadReplies, updateReplyList] = useState([]);
-
-  const onSend = (reply) => {
-    updateReplyList((threadReplies) => [...threadReplies, reply]);
-    toggleThreadPanel(false);
-  };
 
   const ReplyButton = () => {
+    const replies = props.content.replies || [];
+    const replyCount = replies.length;
+
     return (
       <button
         onClick={(e) => {
@@ -21,7 +16,7 @@ export default function ListItem(props) {
         }}
         className="textBtn replyBtn"
       >
-        Reply
+        {replyCount > 0 ? `${replyCount}  Replies` : 'Reply'}
       </button>
     );
   };
@@ -31,17 +26,12 @@ export default function ListItem(props) {
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
     >
-      <MessageContent content={props.content}></MessageContent>
+      <MessageContent
+        content={props.content}
+        user={props.user}
+      ></MessageContent>
 
-      <div>
-        {threadReplies.map((reply, y) => {
-          return <MessageContent content={reply} key={y} />;
-        })}
-        {showReplyBtn && <ReplyButton content={props.content} />}
-        {showThreadPanel && (
-          <Input handleSend={onSend} threadId={props.content.id} />
-        )}
-      </div>
+      <div>{showReplyBtn && <ReplyButton content={props.content} />}</div>
     </div>
   );
 }

@@ -1,0 +1,33 @@
+{
+    "channels":[
+        {
+        "name": "Announcements"
+        
+        },
+        {"name": "General"},
+        {
+            "name":"Front-End Chat",
+            "group": ["dev","eng"]
+        },
+        {
+            "name":"Sales",
+            "group": ["sales"]
+        },
+        {
+            "name":"Admin",
+            "group":"mgmt"
+        }
+    ],
+    "users":[
+        {
+            "full_name":"Van Tran",
+            "preferred_name":"Van",
+            "id": "vtran",
+            "group": ["eng","dev"],
+            "profile":"https://ui-avatars.com/api/?name=Van+Tran",
+            "pronouns": "she/her",
+            "show_pronouns":true
+        }
+    ]
+    
+}

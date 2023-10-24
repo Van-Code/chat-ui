@@ -1,5 +1,19 @@
 Create a chat UI similar to Slack with a thread view. Channels panel is for visual purposes only.
 
+## Assumptions
+
+Code project from scratch to show skills versus leveraging existing chat package.
+
+## Future work should include:
+
+- animate opening/closing thread panel and posting messages
+- allow minimizing channels panel
+- allow updating profile data
+- add style to denote unread messages
+- style reply button
+- dsiplay private channels to members of group
+- add tests
+
 ## Available Scripts
 
 In the project directory, you can run:

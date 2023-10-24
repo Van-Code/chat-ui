@@ -3,6 +3,7 @@ import ListItem from './components/ListItem';
 import Container from 'react-bootstrap/Container';
 import MessageContent from './components/MessageContent';
 import Input from './components/Input';
+import data from './data.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -17,6 +18,7 @@ export default function App() {
     replies: [],
   });
   const [index, increment] = useState(1);
+  const user = data.users[0];
 
   function onParentSend(parentMessage) {
     parentMessage.replies = [];
@@ -50,16 +52,20 @@ export default function App() {
     setParentMessage(item);
     setIsShown(true);
   };
+
   function SidePanel() {
+    const channels = data.channels;
+    const publicChannels = channels.filter((ch) => !ch.group);
+
     return (
-      <div className="sidePanel">
-        Channels
-        <br />
-        Announcements
-        <br />
-        General
-        <br />
-        Happy Hour
+      <div className="sidePanel p-2">
+        <strong>Channels</strong>
+        {publicChannels.map((channel, i) => {
+          return <div key={i}>{channel.name}</div>;
+        })}
+        <hr />
+        <strong>Direct Messages</strong>
+        <div>Van</div>
       </div>
     );
   }
@@ -72,6 +78,7 @@ export default function App() {
               content={item}
               key={item.id}
               handleOpenThread={onOpenThreadPanel}
+              user={user}
             />
           );
         })}
@@ -85,16 +92,26 @@ export default function App() {
       return;
     }
     return parentMessage.replies.map((child) => {
-      return <MessageContent content={child} key={child.id} />;
+      return <MessageContent content={child} key={child.id} user={user} />;
     });
   }
 
   const ThreadPanel = () => {
-    //TOOD: add close button
     return (
       <div className="threadPanel">
+        <button
+          className="textBtn closeBtn"
+          alt="Close button"
+          onClick={() => setIsShown(false)}
+        >
+          X
+        </button>
         <h1>Thread</h1>
-        <MessageContent content={parentMessage} />
+        <MessageContent
+          content={parentMessage}
+          user={user}
+          showReplyButton={false}
+        />
         <ChildReplies content={parentMessage} />
         <Input
           handleSend={onReplySend}
