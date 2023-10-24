@@ -1,4 +1,4 @@
-Create a chat UI similar to Slack with a thread view. Channels panel is for visual purposes only.
+Create a chat UI similar to Slack with a thread view. Channels panel is for visual purposes only. I used the React framework to speed up development. I chose React over other modern frameworks because React was mentioned in the job qualifications.
 
 ## Assumptions
 
