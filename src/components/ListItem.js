@@ -16,7 +16,11 @@ export default function ListItem(props) {
         }}
         className="textBtn replyBtn"
       >
-        {replyCount > 0 ? `${replyCount}  Replies` : 'Reply'}
+        {replyCount > 0
+          ? replyCount > 1
+            ? `${replyCount} Replies`
+            : `${replyCount} Reply`
+          : 'Reply'}
       </button>
     );
   };
