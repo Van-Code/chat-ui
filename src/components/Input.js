@@ -51,6 +51,7 @@ export default function Input(props) {
                 validateMsg(e);
               }}
               value={message}
+              data-testid="textarea-element"
             />
           </Col>
           <Col md="auto">
